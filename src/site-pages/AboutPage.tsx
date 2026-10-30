@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language } from '../types/wedding';
 import { TestimonialsSection } from '../components/TestimonialsSection';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Sparkles,
   Award,
@@ -75,7 +75,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         <div className="mx-auto w-full max-w-6xl px-5 md:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-300 mb-4">
-            <Link to="/" className="hover:text-white transition">
+            <Link href="/" className="hover:text-white transition">
               {language === 'hi' ? 'होम' : 'Home'}
             </Link>
             <span>/</span>
@@ -345,7 +345,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <span>{language === 'hi' ? 'व्हाट्सएप पर बात करें' : 'Chat on WhatsApp'}</span>
             </button>
             <Link
-              to="/services"
+              href="/services"
               className="px-8 py-3.5 rounded-full border border-stone-300 text-stone-800 font-semibold text-sm hover:border-stone-400 transition"
             >
               {language === 'hi' ? 'हमारी सेवाएं देखें' : 'Explore Services'}

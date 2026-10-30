@@ -1,8 +1,25 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Language } from '../types/wedding';
 import { Phone, Menu, X, Globe, Sparkles, ChevronRight } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
+
+type NavLinkProps = {
+  to: string;
+  end?: boolean;
+  onClick?: () => void;
+  className: (props: { isActive: boolean }) => string;
+  children: React.ReactNode;
+};
+
+function NavLink({ to, end, onClick, className, children }: NavLinkProps) {
+  const pathname = usePathname();
+  const isActive = end ? pathname === to : pathname.startsWith(to);
+  return <Link href={to} onClick={onClick} className={className({ isActive })}>{children}</Link>;
+}
 
 interface NavbarProps {
   language: Language;
@@ -12,12 +29,12 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   // Close mobile drawer automatically when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   // Prevent background scroll when mobile menu is open
   useEffect(() => {
@@ -68,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, onOpenCon
     <header className="sticky top-0 z-50 bg-[#faf8f5]/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs transition-all">
       <div className="mx-auto w-full max-w-7xl px-3.5 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo & Title - Fully responsive across 320px to 4K */}
-        <Link to="/" className="flex items-center gap-2 sm:gap-3 group py-1 flex-shrink-0 min-w-0">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 group py-1 flex-shrink-0 min-w-0">
           <img
             src="/assets/aistudio/events_with_shalom_logo_centered.png"
             alt="Events with Shalom Logo"

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO } from '../data/weddingData';
 import { PortfolioItem, Language } from '../types/wedding';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Sparkles,
   MapPin,
@@ -82,7 +82,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
 
         <div className="mx-auto w-full max-w-6xl px-5 md:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-300 mb-4">
-            <Link to="/" className="hover:text-white transition">
+            <Link href="/" className="hover:text-white transition">
               {language === 'hi' ? 'होम' : 'Home'}
             </Link>
             <span>/</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Language } from '../types/wedding';
 import { Home, ArrowLeft } from 'lucide-react';
 
@@ -24,7 +24,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ language }) => {
         </p>
 
         <Link
-          to="/"
+          href="/"
           className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm shadow-md transition"
         >
           <Home className="size-4" />

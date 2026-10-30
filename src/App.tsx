@@ -1,20 +1,23 @@
+'use client';
+
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { ScrollToTop } from './components/ScrollToTop';
-import { HomePage } from './pages/HomePage';
-import { ServicesPage } from './pages/ServicesPage';
-import { AboutPage } from './pages/AboutPage';
-import { GalleryPage } from './pages/GalleryPage';
-import { ContactPage } from './pages/ContactPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { HomePage } from './site-pages/HomePage';
+import { ServicesPage } from './site-pages/ServicesPage';
+import { AboutPage } from './site-pages/AboutPage';
+import { GalleryPage } from './site-pages/GalleryPage';
+import { ContactPage } from './site-pages/ContactPage';
+import { NotFoundPage } from './site-pages/NotFoundPage';
 import { Language } from './types/wedding';
 import { Phone } from 'lucide-react';
 import { WhatsAppIcon } from './components/icons/WhatsAppIcon';
 
 export default function App() {
+  const pathname = usePathname();
   const [language, setLanguage] = useState<Language>('en');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [prefillMessage, setPrefillMessage] = useState('');
@@ -25,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-[#fdfcfa] text-[#1c1917] selection:bg-rose-200 selection:text-rose-900 pb-16 md:pb-0">
         {/* 1. Header Navigation with Routing */}
@@ -37,52 +40,12 @@ export default function App() {
 
         {/* 2. Routed Page Views */}
         <main className="flex-1">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  language={language}
-                  onOpenConsultation={handleOpenConsultation}
-                />
-              }
-            />
-            <Route
-              path="/services"
-              element={
-                <ServicesPage
-                  language={language}
-                  onOpenConsultation={handleOpenConsultation}
-                />
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <AboutPage
-                  language={language}
-                  onOpenConsultation={handleOpenConsultation}
-                />
-              }
-            />
-            <Route
-              path="/gallery"
-              element={
-                <GalleryPage
-                  language={language}
-                  onOpenConsultation={handleOpenConsultation}
-                />
-              }
-            />
-            <Route
-              path="/contact"
-              element={<ContactPage language={language} />}
-            />
-            <Route
-              path="*"
-              element={<NotFoundPage language={language} />}
-            />
-          </Routes>
+          {pathname === '/' && <HomePage language={language} onOpenConsultation={handleOpenConsultation} />}
+          {pathname === '/services' && <ServicesPage language={language} onOpenConsultation={handleOpenConsultation} />}
+          {pathname === '/about' && <AboutPage language={language} onOpenConsultation={handleOpenConsultation} />}
+          {pathname === '/gallery' && <GalleryPage language={language} onOpenConsultation={handleOpenConsultation} />}
+          {pathname === '/contact' && <ContactPage language={language} />}
+          {!['/', '/services', '/about', '/gallery', '/contact'].includes(pathname) && <NotFoundPage language={language} />}
         </main>
 
         {/* 3. Global Footer */}
@@ -129,6 +92,6 @@ export default function App() {
           </button>
         </div>
       </div>
-    </BrowserRouter>
+    </>
   );
 }

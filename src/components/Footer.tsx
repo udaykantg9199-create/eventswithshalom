@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Language } from '../types/wedding';
 import { Phone, MapPin, Heart, Sparkles } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
@@ -17,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <div className="mb-5">
               <Link
-                to="/"
+                href="/"
                 className="inline-block p-2.5 sm:p-3 rounded-2xl bg-[#faf8f5] shadow-xl border border-amber-900/40 hover:scale-105 transition-transform"
               >
                 <img
@@ -62,27 +62,27 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             </h4>
             <ul className="space-y-2.5 text-sm text-stone-400">
               <li>
-                <Link to="/" className="hover:text-rose-400 transition">
+                <Link href="/" className="hover:text-rose-400 transition">
                   {language === 'hi' ? 'होम पेज' : 'Home page'}
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-rose-400 transition">
+                <Link href="/services" className="hover:text-rose-400 transition">
                   {language === 'hi' ? 'हमारी सेवाएं व पैकेज' : 'Services & Packages'}
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-rose-400 transition">
+                <Link href="/about" className="hover:text-rose-400 transition">
                   {language === 'hi' ? 'हमारे बारे में' : 'About Us'}
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="hover:text-rose-400 transition">
+                <Link href="/gallery" className="hover:text-rose-400 transition">
                   {language === 'hi' ? 'शादियों की गैलरी' : 'Celebrations Gallery'}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-rose-400 transition">
+                <Link href="/contact" className="hover:text-rose-400 transition">
                   {language === 'hi' ? 'संपर्क व परामर्श' : 'Contact & Consultation'}
                 </Link>
               </li>

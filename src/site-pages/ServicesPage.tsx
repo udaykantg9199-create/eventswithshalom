@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SERVICES } from '../data/weddingData';
 import { Language } from '../types/wedding';
 import { BudgetCalculator } from '../components/BudgetCalculator';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Sparkles,
   CheckCircle2,
@@ -126,7 +126,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <div className="mx-auto w-full max-w-6xl px-5 md:px-8 text-center relative z-10">
           {/* Breadcrumb */}
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-300 mb-4">
-            <Link to="/" className="hover:text-white transition">
+            <Link href="/" className="hover:text-white transition">
               {language === 'hi' ? 'होम' : 'Home'}
             </Link>
             <span>/</span>
@@ -371,7 +371,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               {language === 'hi' ? 'मुफ्त परामर्श बुक करें' : 'Book Free Consultation'}
             </button>
             <Link
-              to="/gallery"
+              href="/gallery"
               className="px-8 py-3.5 rounded-full border border-stone-300 hover:border-stone-400 text-stone-700 text-sm font-semibold transition"
             >
               {language === 'hi' ? 'हमारे काम की गैलरी देखें' : 'View Real Weddings'}

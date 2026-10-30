@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { PORTFOLIO } from '../data/weddingData';
 import { PortfolioItem, Language } from '../types/wedding';
 import { MapPin, Users, X, ZoomIn, ArrowRight } from 'lucide-react';
@@ -109,7 +109,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({ language, on
         {/* View Full Gallery Link Button */}
         <div className="mt-12 text-center">
           <Link
-            to="/gallery"
+            href="/gallery"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm shadow-md transition group"
           >
             <span>{language === 'hi' ? 'पूरी फोटो गैलरी देखें' : 'Explore Full Celebrations Gallery'}</span>

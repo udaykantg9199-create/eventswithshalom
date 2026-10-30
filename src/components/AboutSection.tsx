@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Language } from '../types/wedding';
 import { HeartHandshake, ShieldCheck, Award, Users, ArrowRight } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
@@ -139,7 +139,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ language, onOpenCons
                 <span>{language === 'hi' ? 'वेडिंग डायरेक्टर से बात करें' : 'Speak with Our Director'}</span>
               </button>
               <Link
-                to="/about"
+                href="/about"
                 className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full border border-stone-300 hover:border-stone-400 text-stone-800 font-semibold text-sm transition"
               >
                 <span>{language === 'hi' ? 'पूरी कहानी पढ़ें' : 'Our Full Story'}</span>
