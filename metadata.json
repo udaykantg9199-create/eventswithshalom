@@ -1,0 +1,6 @@
+{
+  "name": "Shaadi Vibes - Wedding Planning & 3D Stage Visualizer",
+  "description": "Complete wedding planning, luxury decor, reliable vendor management, and interactive 3D Mandap & Stage visualizer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

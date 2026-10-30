@@ -1,0 +1,23 @@
+/* shadcn theme generated from Shaadi Vibes · Complete Wedding Planning */
+:root {
+    --background: #fefdfc;
+    --foreground: #000000;
+    --card: #fefdfc;
+    --card-foreground: #000000;
+    --popover: #fefdfc;
+    --popover-foreground: #000000;
+    --primary: #e11d48;
+    --primary-foreground: #090705;
+    --ring: #e11d48;
+    --secondary: #aa8400;
+    --secondary-foreground: #090705;
+    --muted: #e7e2db;
+    --muted-foreground: #78716c;
+    --accent: #aa8400;
+    --accent-foreground: #090705;
+    --destructive: #ef4444;
+    --destructive-foreground: #f9f4f1;
+    --border: #d6d3d1;
+    --input: #d6d3d1;
+    --radius: 0.5rem;
+}
